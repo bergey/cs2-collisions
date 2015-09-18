@@ -44,5 +44,32 @@ class Asteroid {
   }
   endShape(CLOSE);
 }
-
+  float childShape(){
+   return size;
+  }
+  boolean canSplit(){
+    if (size > 4){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  float radius(){
+    if (size==4){
+      return 10;
+    }
+    else if (size==5){
+      return 12.7;
+    }
+    else if (size==6){
+      return 16;
+    }
+    else if (size==7){
+      return 20.2;
+    }
+    else if (size==8){
+      return 25.4;
+    }
+  }
 }
