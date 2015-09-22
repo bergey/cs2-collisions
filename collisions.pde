@@ -41,16 +41,24 @@ void handleCollisions() {
 int initialAsteroids = 10;
 int initialBreakers = 30;
 
-ArrayList<Asteroid> asteroids = new ArrayList();
-ArrayList<Breaker> breakers = new ArrayList();
-
-boolean colliding(){
-  
-}
-
 PVector distance(PVector c,PVector v_){
   return(c.sub(v_));
 }
+ArrayList<Asteroid> asteroids = new ArrayList();
+ArrayList<Breaker> breakers = new ArrayList();
+i=0;
+boolean colliding(){
+  if (){
+    return true;
+  }
+}
+/*while(i<initialAsteroids){
+  Asteroid a = (Asteroid) asteroids.get(i);
+  i++;
+}
+while(i<initialBreakers){
+  Breaker b = (Breaker) breakers.get(i);
+}*/
 // Store time (ms) of last update.
 float t, last_t, dt;
 Pair<Asteroid, Asteroid> children;
