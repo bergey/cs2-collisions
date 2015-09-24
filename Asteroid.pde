@@ -43,7 +43,13 @@ class Asteroid {
     vertex(sx, sy);
   }
   endShape(CLOSE);
-}
+  }
+  //Calls polygon function, and fills in variables for position/size
+  //stile broken, need to fix radius
+  void render(){
+    fill(67,255,219);
+    polygon(center.x,center.y,radius(),size);
+  }
   float childShape(){
    return size;
   }
@@ -70,6 +76,9 @@ class Asteroid {
     }
     else if (size==8){
       return 25.4;
+    }
+    else{
+      return -1;
     }
   }
 }
