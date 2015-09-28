@@ -45,7 +45,6 @@ class Asteroid {
   endShape(CLOSE);
   }
   //Calls polygon function, and fills in variables for position/size
-  //still broken, need to fix radius
   void render(){
     fill(67,255,219);
     polygon(center.x,center.y,this.radius(),size);
@@ -64,6 +63,10 @@ class Asteroid {
   //Multiply pvectors and make v1 and v2.
   void childVelocities(){
     Pair<PVector,PVector> p;
+    PVector v1 = PVector.mult(v,1.1);
+    PVector v2 = PVector.mult(v,1.1);
+    v1.rotate(-.523);
+    v2.rotate(.523);
     p = new Pair(v1,v2);
   }
   float radius(){
