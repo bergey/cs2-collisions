@@ -54,13 +54,6 @@ boolean colliding(Asteroid a,Breaker b){
     return false;
   }
 }
-/*while(i<initialAsteroids){
-  Asteroid a = (Asteroid) asteroids.get(i);
-  i++;
-}
-while(i<initialBreakers){
-  Breaker b = (Breaker) breakers.get(i);
-}*/
 // Store time (ms) of last update.
 float t, last_t, dt;
 Pair<Asteroid, Asteroid> children;

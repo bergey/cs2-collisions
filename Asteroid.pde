@@ -45,10 +45,10 @@ class Asteroid {
   endShape(CLOSE);
   }
   //Calls polygon function, and fills in variables for position/size
-  //stile broken, need to fix radius
+  //still broken, need to fix radius
   void render(){
     fill(67,255,219);
-    polygon(center.x,center.y,radius(),size);
+    polygon(center.x,center.y,this.radius(),size);
   }
   float childShape(){
    return size;
@@ -60,6 +60,11 @@ class Asteroid {
     else{
       return false;
     }
+  }
+  //Multiply pvectors and make v1 and v2.
+  void childVelocities(){
+    Pair<PVector,PVector> p;
+    p = new Pair(v1,v2);
   }
   float radius(){
     if (size==4){
