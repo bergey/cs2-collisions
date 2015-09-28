@@ -89,4 +89,7 @@ class Asteroid {
       return -1;
     }
   }
+  void children(){
+    
+  }
 }
