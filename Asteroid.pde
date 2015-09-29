@@ -49,7 +49,7 @@ class Asteroid {
     fill(67,255,219);
     polygon(center.x,center.y,this.radius(),size);
   }
-  float childShape(){
+  int childShape(){
    return size;
   }
   boolean canSplit(){
@@ -61,13 +61,13 @@ class Asteroid {
     }
   }
   //Multiply pvectors and make v1 and v2.
-  void childVelocities(){
-    Pair<PVector,PVector> p;
+  Pair childVelocities(){
     PVector v1 = PVector.mult(v,1.1);
     PVector v2 = PVector.mult(v,1.1);
     v1.rotate(-.523);
     v2.rotate(.523);
-    p = new Pair(v1,v2);
+    Pair<PVector, PVector> p = new Pair(v1,v2);
+    return p;
   }
   float radius(){
     if (size==4){
@@ -89,7 +89,11 @@ class Asteroid {
       return -1;
     }
   }
-  void children(){
-    
+  Pair children(){
+    Pair<PVector,PVector> g = childVelocities();
+    Asteroid a= new Asteroid(this.childShape(),center,g.a);
+    Asteroid b= new Asteroid(this.childShape(),center,g.b);
+    Pair<Asteroid,Asteroid> j = new Pair(a,b);
+    return j;
   }
 }

@@ -47,8 +47,9 @@ PVector distance(PVector c,PVector v_){
 ArrayList<Asteroid> asteroids = new ArrayList();
 ArrayList<Breaker> breakers = new ArrayList();
 //Takes the position of an Asteroid and Breaker and compares them.
+//colliding() broken
 boolean colliding(Asteroid a,Breaker b){
-  if (a.radius() + a.center == b.radius() + b.center){
+  if (a.radius() + a.center.x + a.center.y == b.radius() + b.center.x + b.center.y){
     return true;
   }else{
     return false;
