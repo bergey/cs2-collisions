@@ -50,7 +50,7 @@ class Asteroid {
     polygon(center.x,center.y,this.radius(),size);
   }
   int childShape(){
-   return size;
+   return size -1;
   }
   boolean canSplit(){
     if (size > 4){
@@ -92,7 +92,7 @@ class Asteroid {
   Pair children(){
     Pair<PVector,PVector> g = childVelocities();
     Asteroid a= new Asteroid(this.childShape(),center,g.a);
-    Asteroid b= new Asteroid(this.childShape(),center,g.b);
+    Asteroid b= new Asteroid(this.childShape(),center.copy(),g.b);
     Pair<Asteroid,Asteroid> j = new Pair(a,b);
     return j;
   }
