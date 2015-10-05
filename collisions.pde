@@ -51,8 +51,6 @@ ArrayList<Breaker> breakers = new ArrayList();
 boolean colliding(Asteroid a,Breaker b){
   if (distance(a.center,b.center)<=a.radius()+b.radius()){
     return true;
-  //if (a.radius() + a.center.x + a.center.y == b.radius() + b.center.x + b.center.y){
-    //return true;
   }else{
     return false;
   }
@@ -60,7 +58,7 @@ boolean colliding(Asteroid a,Breaker b){
 // Store time (ms) of last update.
 float t, last_t, dt;
 Pair<Asteroid, Asteroid> children;
-
+Player w;
 void setup() {
 
   // Make random Asteroids
@@ -78,6 +76,8 @@ void setup() {
   }
   
   size(500,500);
+  w= new Player();
+  frameRate(60);
 }
 
 void draw() {
@@ -100,6 +100,17 @@ void draw() {
   for(Asteroid a : asteroids) {
     a.update(dt);
   }
-  
+  if (keyPressed) {
+    if (key == CODED) {
+      if(keyCode==UP){
+        w.setSpeeds(0,-5);
+      }
+      if(keyCode==DOWN){
+        w.setSpeeds(0,5);
+      }
+    }
+  }
+  w.update();
+  w.render();
   handleCollisions();
 }
