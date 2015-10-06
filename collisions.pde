@@ -103,14 +103,16 @@ void draw() {
   if (keyPressed) {
     if (key == CODED) {
       if(keyCode==UP){
-        w.setSpeeds(0,-5);
+        w.move(true);
       }
-      if(keyCode==DOWN){
-        w.setSpeeds(0,5);
+      if(keyCode==LEFT){
+        w.setRotate(-.1);
+      }
+      if(keyCode==RIGHT){
+        w.setRotate(.1);
       }
     }
   }
-  w.update();
   w.render();
   handleCollisions();
 }

@@ -1,25 +1,27 @@
 class Player {
-  int x;
-  int y;
-  int xSpeed;
-  int ySpeed;
+  float rotDegree;
+  PVector center;
   Player(){
-    x=width/2;
-    y=height/2;
-    xSpeed=0;
-    ySpeed=0;
+    center = new PVector(width/2,height/2);
   }
-  void setSpeeds(int newXSpeed,int newYSpeed){
-    xSpeed=newXSpeed;
-    ySpeed=newYSpeed;
+ void setRotate(float rot){
+   rotDegree=rot+rotDegree;
   }
-  void update(){
-    x=x+xSpeed;
-    y=y+ySpeed;
+  void move(boolean g){
+    if (g == true){
+      center = center.x + cos(rotDegree);
+    }else{
+      center = new PVector(0,0);
+    }
   }
   //render broken
   void render(){
     fill(255,0,0);
-    triangle(x-10,y,x+10,y,x,y-25);
+    pushMatrix();
+   // v.rotate(rotDegree);
+    rotate(rotDegree);
+    translate(width/2 + v.x,height/2 + v.y);
+    triangle(-10,0,10,0,0,-25);
+    popMatrix();
   }
 }
