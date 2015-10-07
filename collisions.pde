@@ -103,7 +103,7 @@ void draw() {
   if (keyPressed) {
     if (key == CODED) {
       if(keyCode==UP){
-        w.move(true);
+        w.move();
       }
       if(keyCode==LEFT){
         w.setRotate(-.1);
