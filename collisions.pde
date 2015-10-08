@@ -59,6 +59,7 @@ boolean colliding(Asteroid a,Breaker b){
 float t, last_t, dt;
 Pair<Asteroid, Asteroid> children;
 Player w;
+Breaker b;
 void setup() {
 
   // Make random Asteroids
@@ -70,19 +71,19 @@ void setup() {
 
   // Randomly place Breakers
   i = 0;
-  while(i < initialBreakers) {
-    breakers.add(new Breaker());
-    i++;
-  }
   
   size(500,500);
   w= new Player();
   frameRate(60);
+ /* while(i < initialBreakers) {
+    breakers.add(new Breaker(w.loc()));
+    i++;
+  }*/
 }
 
 void draw() {
   clear();
-
+  
   // Render all the Asteroids
   for(Asteroid a : asteroids) {
     a.render();
@@ -90,6 +91,20 @@ void draw() {
 
   // Render all the Breakers
   for(Breaker b : breakers) {
+    if(keyPressed){
+      if(key == CODED){
+        if(keyCode==DOWN){
+          breakers.add(new Breaker(w.loc()));
+          b.fly();
+        }
+        if(keyCode==LEFT){
+        b.setRotate(-.1);
+      }
+        if(keyCode==RIGHT){
+        b.setRotate(.1);
+      }
+      }
+    }
     b.render();
   }
 

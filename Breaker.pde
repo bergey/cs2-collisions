@@ -1,23 +1,37 @@
 class Breaker {
-  final PVector center;
-
+  PVector center;
+  PVector v;
+  float rotDegree;
+  
   Breaker(PVector c) {
     center = c;
+    v = new PVector(0,0);
   }
-
-  // Create a Breaker with a random position, uniformly distributed
-  // over the area of the window.
-  Breaker() {
-    center = new PVector(random(width), random(height));
+  Breaker(){
+    center = new PVector(0,0);
+    v = new PVector(0,0);
   }
-  
-  float radius() {
+  void setCent(PVector j){
+    center = j;
+  }
+  void setRotate(float rot){
+    rotDegree=rot+rotDegree;
+  }
+  void fly(){
+      v.x = v.x + cos(rotDegree)/5;
+      v.y = v.y + sin(rotDegree)/5;
+  }
+  float radius(){
     return 5;
   }
-  
-  void render() {
-    fill(255);
+ 
+ void render(){
     stroke(0);
-    ellipse(center.x, center.y, 5, 5);
-  }
+    center.add(v.copy());
+    pushMatrix();
+    translate(center.x,center.y);
+    ellipse(0,0, 5, 5);
+    popMatrix();
+ }
 }
+ 
