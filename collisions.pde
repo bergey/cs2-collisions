@@ -47,7 +47,6 @@ float distance(PVector c,PVector v_){
 ArrayList<Asteroid> asteroids = new ArrayList();
 ArrayList<Breaker> breakers = new ArrayList();
 //Takes the position of an Asteroid and Breaker and compares them.
-//colliding() broken
 boolean colliding(Asteroid a,Breaker b){
   if (distance(a.center,b.center)<=a.radius()+b.radius()){
     return true;
@@ -73,8 +72,7 @@ void setup() {
   i = 0;
   
   size(500,500);
-  w= new Player();
-  frameRate(60);
+  w = new Player();
  /* while(i < initialBreakers) {
     breakers.add(new Breaker(w.loc()));
     i++;
@@ -88,23 +86,18 @@ void draw() {
   for(Asteroid a : asteroids) {
     a.render();
   }
-
-  // Render all the Breakers
-  for(Breaker b : breakers) {
-    if(keyPressed){
-      if(key == CODED){
-        if(keyCode==DOWN){
-          breakers.add(new Breaker(w.loc()));
-          b.fly();
-        }
-        if(keyCode==LEFT){
-        b.setRotate(-.1);
-      }
-        if(keyCode==RIGHT){
-        b.setRotate(.1);
-      }
-      }
+  Breaker k;
+  if(keyPressed){
+    if(key == CODED){
+     if(keyCode==DOWN){
+       k = new Breaker(w.loc());
+       breakers.add(k);
+       k.setRotate(w.angle());
+       k.fly();
+     }
     }
+   }
+  for(Breaker b : breakers) {
     b.render();
   }
 
