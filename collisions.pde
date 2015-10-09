@@ -87,16 +87,6 @@ void draw() {
     a.render();
   }
   Breaker k;
-  if(keyPressed){
-    if(key == CODED){
-     if(keyCode==DOWN){
-       k = new Breaker(w.loc());
-       breakers.add(k);
-       k.setRotate(w.angle());
-       k.fly();
-     }
-    }
-   }
   for(Breaker b : breakers) {
     b.render();
   }
@@ -119,6 +109,15 @@ void draw() {
       if(keyCode==RIGHT){
         w.setRotate(.1);
       }
+      if(keyCode==DOWN){
+       k = new Breaker(w.loc());
+       breakers.add(k);
+       k.setRotate(w.angle());
+       k.fly();
+     }
+    }
+    if(key=='g'){
+      setup();
     }
   }
   w.render();
