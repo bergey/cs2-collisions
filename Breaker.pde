@@ -31,6 +31,7 @@ class Breaker {
     center.add(v.copy());
     pushMatrix();
     noStroke();
+    fill(155,0,255);
     translate(center.x,center.y);
     ellipse(0,0, 5, 5);
     popMatrix();
