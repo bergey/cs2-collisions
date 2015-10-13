@@ -88,12 +88,17 @@ void setup() {
 
 void draw() {
   clear();
-  
-  for(Asteroid a: asteroids){
-    if(colPlay(a,w)==true){
-      text("Game Over.",width/2,height/2);
-      noLoop();
+  if(t<5000){
+    w.col(209,131,131);
+  }
+  if(t>5000){
+    for(Asteroid a: asteroids){
+      if(colPlay(a,w)==true){
+        text("Game Over.",width/2,height/2);
+        noLoop();
+      }
     }
+    w.col(255,0,0);
   }
   // Render all the Asteroids
   for(Asteroid a : asteroids) {
