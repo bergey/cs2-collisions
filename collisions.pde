@@ -67,7 +67,6 @@ Pair<Asteroid, Asteroid> children;
 Player w;
 Breaker b;
 void setup() {
-
   // Make random Asteroids
   int i = 0;
   while(i < initialAsteroids) {
@@ -89,7 +88,7 @@ void setup() {
 void draw() {
   clear();
   if(t<5000){
-    w.col(209,131,131);
+    w.op(100);
   }
   if(t>5000){
     for(Asteroid a: asteroids){
@@ -98,7 +97,7 @@ void draw() {
         noLoop();
       }
     }
-    w.col(255,0,0);
+    w.op(255);
   }
   // Render all the Asteroids
   for(Asteroid a : asteroids) {

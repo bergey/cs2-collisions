@@ -2,17 +2,13 @@ class Player {
   float rotDegree;
   PVector center;
   PVector v;
-  int r;
-  int g;
-  int b;
+  int op;
   Player(){
     center = new PVector(width/2,height/2);
     v = new PVector(0,0);
   }
-  void col(int red,int green,int blue){
-    r=red;
-    g=green;
-    b=blue;
+  void op(int opac){
+    op=opac;
   }
   void setRotate(float rot){
    rotDegree=rot+rotDegree;
@@ -29,7 +25,7 @@ class Player {
   }
   //render broken
   void render(){
-    fill(r,g,b);
+    fill(255,0,0,op);
     center.add(v);
     pushMatrix();
     translate(center.x,center.y);
