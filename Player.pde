@@ -13,6 +13,9 @@ class Player {
       v.x = v.x + cos(rotDegree)/5;
       v.y = v.y + sin(rotDegree)/5;
   }
+  float radius(){
+    return 15;
+  }
   float angle(){
     return rotDegree;
   }

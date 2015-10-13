@@ -54,6 +54,13 @@ boolean colliding(Asteroid a,Breaker b){
     return false;
   }
 }
+boolean colPlay(Asteroid a,Player w){
+  if(distance(a.center,w.center)<=a.radius()+w.radius()){
+    return true;
+  }else{
+    return false;
+  }
+}
 // Store time (ms) of last update.
 float t, last_t, dt;
 Pair<Asteroid, Asteroid> children;
@@ -82,6 +89,12 @@ void setup() {
 void draw() {
   clear();
   
+  for(Asteroid a: asteroids){
+    if(colPlay(a,w)==true){
+      text("Game Over.",width/2,height/2);
+      noLoop();
+    }
+  }
   // Render all the Asteroids
   for(Asteroid a : asteroids) {
     a.render();
