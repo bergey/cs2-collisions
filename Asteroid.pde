@@ -49,9 +49,11 @@ class Asteroid {
     fill(67,255,219);
     polygon(center.x,center.y,this.radius(),size);
   }
+  // Changes the size of the child by -1
   int childShape(){
    return size -1;
   }
+  // Returns condition if size is within certain boundaries.
   boolean canSplit(){
     if (size > 4){
       return true;
@@ -69,6 +71,7 @@ class Asteroid {
     Pair<PVector, PVector> p = new Pair(v1,v2);
     return p;
   }
+  // Returns the radius based upon size.
   float radius(){
     if (size==4){
       return 10;
@@ -89,6 +92,7 @@ class Asteroid {
       return -1;
     }
   }
+  // Creates a Pair of new child asteroids with given arguments.
   Pair children(){
     Pair<PVector,PVector> g = childVelocities();
     Asteroid a= new Asteroid(this.childShape(),center,g.a);

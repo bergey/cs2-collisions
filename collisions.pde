@@ -40,10 +40,11 @@ void handleCollisions() {
 // The number of (random) elements to create.
 int initialAsteroids = 10;
 int initialBreakers = 30;
-
+// returns the distance between two objects
 float distance(PVector c,PVector v_){
   return(c.dist(v_));
 }
+//creates asteroid and breaker ArrayLists
 ArrayList<Asteroid> asteroids = new ArrayList();
 ArrayList<Breaker> breakers = new ArrayList();
 //Takes the position of an Asteroid and Breaker and compares them.
@@ -54,6 +55,7 @@ boolean colliding(Asteroid a,Breaker b){
     return false;
   }
 }
+//determines if asteroid and player are colliding (within a decent margin of error).
 boolean colPlay(Asteroid a,Player w){
   if(distance(a.center,w.center)<=a.radius()+w.radius()){
     return true;
@@ -78,19 +80,18 @@ void setup() {
   i = 0;
   
   size(500,500);
+  //creating player object 
   w = new Player();
- /* while(i < initialBreakers) {
-    breakers.add(new Breaker(w.loc()));
-    i++;
-  }*/
 }
 
 void draw() {
   clear();
-  if(t<5000){
-    w.op(100);
+  //player relatively transparent(invunerable) if within 4 seconds of start
+  if(t<4000){
+    w.op(70);
   }
-  if(t>5000){
+  // Once time of invunerability is over, if player collides with an asteroid output of text "gameover" and sets player to opaque.
+  if(t>4000){
     for(Asteroid a: asteroids){
       if(colPlay(a,w)==true){
         text("Game Over.",width/2,height/2);
@@ -103,6 +104,7 @@ void draw() {
   for(Asteroid a : asteroids) {
     a.render();
   }
+  // Render all the breakers
   Breaker k;
   for(Breaker b : breakers) {
     b.render();
@@ -115,6 +117,7 @@ void draw() {
   for(Asteroid a : asteroids) {
     a.update(dt);
   }
+  // Direction and firing for the player and breakers, as well as a broken reset.
   if (keyPressed) {
     if (key == CODED) {
       if(keyCode==UP){
