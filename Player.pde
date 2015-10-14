@@ -22,7 +22,7 @@ class Player {
   }
   // Returns radius.
   float radius(){
-    return 15;
+    return 10;
   }
   // Returns the current rotDegree (for use within breaker).
   float angle(){
