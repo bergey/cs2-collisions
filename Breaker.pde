@@ -14,8 +14,8 @@ class Breaker {
     dv.rotate(this.rotation);
     dv.mult(dt/1000);
     center.add(dv);
-    center.x = center.x % width;
-    center.y = center.y % height;
+    center.x = (center.x + width) % width;
+    center.y = (center.y + width) % height;
   }
 
   float radius() {
